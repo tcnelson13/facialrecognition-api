@@ -87,14 +87,14 @@ let found = false;
 # Facial-Recognition DB
 CREATE TABLE users (
     id serial PRIMARY KEY,
-    "name" VARCHAR(100),
+    name VARCHAR(100),
     email TEXT UNIQUE NOT NULL, 
     entries BIGINT DEFAULT 0,
     joined TIMESTAMP NOT NULL
 );
-
+  
 CREATE TABLE login (
-    ID serial NOT NULL PRIMARY KEY,
-    secret VARCHAR(100) NOT NULL,
-    "name" text UNIQUE NOT NULL
+    id serial PRIMARY KEY,
+    hash varchar(100) NOT NULL,
+    email TEXT UNIQUE NOT NULL
 );
