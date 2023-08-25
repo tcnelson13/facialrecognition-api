@@ -17,7 +17,8 @@ const signIn = require("./controllers/signIn");
 const profile = require("./controllers/profile");
 const image = require("./controllers/image");
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
+const apiKey = process.env.API_KEY_CLARIFAI;
 
 const app = express();
 app.use(cors());
@@ -49,7 +50,7 @@ app.put("/image", (req, res) => {
 });
 
 app.post("/imageurl", (req, res) => {
-  image.handleApiCall(req, res);
+  image.handleApiCall(req, res, apiKey);
 });
 
 app.listen(PORT, () => {

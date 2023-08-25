@@ -1,10 +1,9 @@
 const Clarifai = require("clarifai");
 
-const app = new Clarifai.App({
-  // apiKey: "<STORED LOCALLY>",
-});
-
-const handleApiCall = (req, res) => {
+const handleApiCall = (req, res, apiKey) => {
+  const app = new Clarifai.App({
+    apiKey: apiKey,
+  });
   app.models
     .predict("face-detection", req.body.input)
     .then((data) => {
